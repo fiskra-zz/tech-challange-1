@@ -15,9 +15,9 @@ This is also can be a question like swapping numbers without temp variable. You 
 
 Basically:
 
-* x = x + y;*
-* y = x - y;*
-* x = x - y;*
+* x = x + y; *
+* y = x - y; *
+* x = x - y; *
 
  
 
