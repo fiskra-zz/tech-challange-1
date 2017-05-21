@@ -29,7 +29,5 @@ public interface PersonDataProvider {
      *              A collection of people data matching the criteria.
      */
     Collection<Person> search(String firstName, String lastName, Boolean eu, int minimumAge);
-    
-    Collection<Person> search2();
 
 }

@@ -76,12 +76,5 @@ public class FileBasedProvider implements PersonDataProvider{
     	return peopleStream.collect(Collectors.toList());
       
     }
-    
-    public Collection<Person> search2(){
-    	return myPeople.stream()
-         .filter(((Predicate<Person>) p -> p.getAge() == 56).and(p -> p.getFirstName().equals("Scott")))
-         .collect(Collectors.toList());       
-    }
-
 
 }
