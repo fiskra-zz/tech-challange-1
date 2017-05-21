@@ -100,11 +100,6 @@ public class FileBasedProviderTest {
 	        Person result = new Person("Tanya","Scott",Country.ARMENIA,56);
 	        assertEquals(result, entries.iterator().next());
 	    }
-	    @Test
-	    public void test3(){
-	    	Collection<Person> entries = provider.search2();
-	        System.out.println("fwr");
-	    }
 
 	    /**
 	     * Runs the tests as a java app.

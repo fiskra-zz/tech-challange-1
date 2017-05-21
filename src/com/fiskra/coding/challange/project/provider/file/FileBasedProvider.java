@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import com.fiskra.coding.challange.project.data.Country;
 import com.fiskra.coding.challange.project.data.Person;
@@ -60,26 +61,20 @@ public class FileBasedProvider implements PersonDataProvider{
     @Override
     public Collection<Person> search(String firstName, String lastName, Boolean eu, int minimumAge) {
         // todo task-3: implement the searching as described in this method's javadoc
+    
+    	Stream<Person> peopleStream = myPeople.stream();
     	
-    	/*List<Predicate<Person>> allPredicates = Arrays.asList(
-                w -> w.getFirstName().equals(firstName),
-                w -> w.getLastName().equals(lastName),
-                w -> w.getCountry().isEu() == eu.booleanValue(),
-                w -> w.getAge()>=minimumAge
-            );*/
+    	if(firstName!=null)
+    		peopleStream = peopleStream.filter(person -> person.getFirstName().equals(firstName));
+    	if(lastName!=null)
+    		peopleStream = peopleStream.filter(person -> person.getLastName().equals(lastName));
+    	if(minimumAge > 0)
+    		peopleStream = peopleStream.filter(person -> person.getAge()>=minimumAge);
+    	if(eu != null)
+    		peopleStream = peopleStream.filter(person -> person.getCountry().isEu() == eu.booleanValue());
     	
-    //	return myPeople.stream().filter(allPredicates).collect(Collectors.toList());
-    	
+    	return peopleStream.collect(Collectors.toList());
       
-       return myPeople.stream().filter(person -> person.getFirstName().equals(firstName))
-       		.filter(person -> person.getLastName().equals(lastName))
-       		.filter(person -> person.getCountry().isEu() == eu.booleanValue())
-       		.filter(person -> person.getAge()>=minimumAge)
-       		.collect(Collectors.toList());
-       
-    	/*return myPeople.stream().filter(person -> person.getFirstName().equals(firstName) | 
-    			person.getLastName().equals(lastName) | person.getCountry().isEu() == eu.booleanValue()
-    			| person.getAge()>=minimumAge).collect(Collectors.toList()); */
     }
     
     public Collection<Person> search2(){

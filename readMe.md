@@ -14,11 +14,11 @@ This is also can be a question like swapping numbers without temp variable. You 
 [swap numbers without temp](http://www.geeksforgeeks.org/swap-two-numbers-without-using-temporary-variable/)
 
 Basically:
-
-* x = x + y;*
-* y = x - y;*
-* x = x - y;*
-
+```
+ x = x + y;
+ y = x - y;
+ x = x - y;
+```
  
 
 ### Question2
